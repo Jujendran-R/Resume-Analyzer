@@ -505,6 +505,10 @@ def index():
 def health():
     return "OK", 200
 
+@app.route("/kaithheathcheck")
+def health():
+    return "OK", 200
+
 
 @app.route("/analyze", methods=["POST"])
 def analyze():

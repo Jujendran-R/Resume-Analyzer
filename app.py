@@ -16,7 +16,12 @@ from flask import Flask
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, 
+     origins=["https://resume-analyzer-ten-taupe.vercel.app", "http://localhost:3000"],
+     supports_credentials=True,
+     methods=["GET", "POST", "OPTIONS"],
+     allow_headers=["Content-Type"]
+)
 
 # Load environment variables
 load_dotenv()

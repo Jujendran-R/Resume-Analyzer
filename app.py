@@ -22,8 +22,6 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "google/gemma-3-27b-it:free")
 USE_OPENROUTER = os.getenv("USE_OPENROUTER", "true").lower() == "true"
 
-# Flask app configuration
-app = Flask(__name__)
 UPLOAD_FOLDER = Path("uploads")
 UPLOAD_FOLDER.mkdir(exist_ok=True)
 app.config['UPLOAD_FOLDER'] = str(UPLOAD_FOLDER)
@@ -503,6 +501,10 @@ def index():
     """Serve main page."""
     return render_template("index.html")
 
+@app.route("/health")
+def health():
+    return "OK", 200
+
 
 @app.route("/analyze", methods=["POST"])
 def analyze():
@@ -562,14 +564,5 @@ def analyze():
 
 
 if __name__ == "__main__":
-    print("\n" + "="*70)
-    print("🚀 AI RESUME ANALYZER - Flask Web App")
-    print("="*70)
-    print("📱 Web Interface: http://localhost:5000")
-    print(f"🤖 AI Provider: {'OpenRouter' if USE_OPENROUTER else 'OpenAI'}")
-    print(f"📊 Model: {OPENROUTER_MODEL if USE_OPENROUTER else OPENAI_MODEL}")
-    print("="*70)
-    print("🎨 Custom HTML/CSS UI with Beautiful Design")
-    print("="*70 + "\n")
-    
-    app.run(debug=False, host="0.0.0.0", port=5000)
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)

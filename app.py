@@ -506,7 +506,7 @@ def health():
     return "OK", 200
 
 @app.route("/kaithheathcheck")
-def health():
+def kaithheathcheck():
     return "OK", 200
 
 

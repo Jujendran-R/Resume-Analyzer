@@ -1,4 +1,4 @@
-# AI Resume Analyzer
+# Resume Analyzer
 
 An intelligent Python CLI tool and web interface that analyzes resumes using AI and ATS (Applicant Tracking System) optimization. Perfect for job seekers wanting to optimize their resumes for maximum impact.
 

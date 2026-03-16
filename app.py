@@ -12,6 +12,11 @@ from dotenv import load_dotenv
 from typing import Dict, List
 from flask import Flask, render_template, request, jsonify
 from werkzeug.utils import secure_filename
+from flask import Flask
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
 
 # Load environment variables
 load_dotenv()

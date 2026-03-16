@@ -24,9 +24,9 @@ USE_OPENROUTER = os.getenv("USE_OPENROUTER", "true").lower() == "true"
 
 UPLOAD_FOLDER = Path("/tmp/uploads")
 UPLOAD_FOLDER.mkdir(parents=True, exist_ok=True)
-app.config['UPLOAD_FOLDER'] = str(UPLOAD_FOLDER)
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
+app.config["UPLOAD_FOLDER"] = str(UPLOAD_FOLDER)
+app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024
 # ATS Keywords
 ATS_KEYWORDS = {
     "technical": [

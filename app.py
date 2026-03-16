@@ -1,9 +1,3 @@
-"""
-AI Resume Analyzer - Flask App with Custom HTML/CSS UI
-Run with: python app_html.py
-Opens at: http://localhost:5000
-"""
-
 import os
 import json
 import re
@@ -16,12 +10,7 @@ from flask import Flask
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, 
-     origins=["https://resume-analyzer-ten-taupe.vercel.app", "http://localhost:3000"],
-     supports_credentials=True,
-     methods=["GET", "POST", "OPTIONS"],
-     allow_headers=["Content-Type"]
-)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Load environment variables
 load_dotenv()

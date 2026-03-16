@@ -6,3 +6,4 @@ click>=8.1.0
 gradio>=4.0.0
 requests>=2.31.0
 Flask>=3.0.0
+cors>=0.1.0
